@@ -3,7 +3,8 @@
 import sys
  
 # add the path of the Assignment_1 folder to the sys.path
-sys.path.insert(0, 'D:/_STORAGE/03_EDUCATION/IIT Kanpur - Solid Mechanics and Design/OneDrive - IIT Kanpur/SEM 2/CS776A - Deep learning for Computer vision/CS776/Assignment_1')
+sys.path.append('Assignment_1')
+
 
 from PreProcessor import ImagePreProcessor
 from PreProcessor.unpickle import unpickle
