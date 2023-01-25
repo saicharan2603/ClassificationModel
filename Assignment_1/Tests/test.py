@@ -1,21 +1,20 @@
-from unpickle import unpickle
+
+# importing sys
+import sys
+ 
+# add the path of the Assignment_1 folder to the sys.path
+sys.path.insert(0, 'D:/_STORAGE/03_EDUCATION/IIT Kanpur - Solid Mechanics and Design/OneDrive - IIT Kanpur/SEM 2/CS776A - Deep learning for Computer vision/CS776/Assignment_1')
+
+from PreProcessor import ImagePreProcessor
+from PreProcessor.unpickle import unpickle
+
+
 import numpy as np
 from matplotlib import pyplot as plt
 
 
-def reshape(image):
-    reshaped = np.zeros((32,32,3)).astype('uint8')
-    n = 0
-    for k in range(3):
-        for i in range(32):
-            for j in range(32):
-                reshaped[i][j][k] = image[n]
-                n = n+1
-
-    return reshaped
-
-labels = unpickle("Data\\input\\cifar-10-batches-py\\batches.meta")
-dict = unpickle("Data\\input\\cifar-10-batches-py\\data_batch_1")
+labels = unpickle("Assignment_1\\Data\\batches.meta")
+dict = unpickle("Assignment_1\\Data\\data_batch_1")
 
 print(type(dict[b'data'][0]))
 print(len(dict))
@@ -27,8 +26,6 @@ print(len(dict[b'data']))
 print(len(dict[b'data'][0]))
 print("_______________________________")
 print("_______________________________")
-
-import ImagePreProcessor
 
 image = dict[b'data'][1]
 min = np.min(image)
