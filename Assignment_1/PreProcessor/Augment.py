@@ -1,4 +1,4 @@
-import ImagePreProcessor
+from PreProcessor import ImagePreProcessor
 import numpy as np
 
 def random_pre_process(image):
@@ -26,6 +26,3 @@ def get_Augmented_Data(data: dict):
     data[b'labels'] = np.append(data[b'labels'], data2[b'labels'])
 
     return data
-
-
-    
