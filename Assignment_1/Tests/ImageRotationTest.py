@@ -5,7 +5,7 @@ import sys
 sys.path.append('Assignment_1')
 
 import numpy as np
-from Assignment_1.PreProcessor import ImagePreProcessor
+from PreProcessor import ImagePreProcessor
 
 def print_mat(array):
     array = np.array(array)

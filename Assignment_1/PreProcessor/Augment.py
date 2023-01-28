@@ -22,7 +22,7 @@ def get_Augmented_Data(data: dict):
     for i in range(size): 
         data2[b'data'][i] = random_pre_process(data2[b'data'][i])
     
-    data[b'data'] = np.append(data[b'data'], data2[b'data'])
+    data[b'data'] = np.append(data[b'data'], data2[b'data']).reshape((20000, 3072))
     data[b'labels'] = np.append(data[b'labels'], data2[b'labels'])
 
     return data
