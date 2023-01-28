@@ -1,0 +1,11 @@
+# ignore the .vscode folder
+.vscode/
+
+# ignore the .idea folder
+.idea/
+
+# ignore the .pyc
+*.pyc
+
+# ignore _pycache_ folder
+./__pycache__/
