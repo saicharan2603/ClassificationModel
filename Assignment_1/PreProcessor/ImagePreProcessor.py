@@ -109,7 +109,7 @@ def show_image(image, x = 32, y = 32, channels = 3):
     """
     reshapes the row majored image array into x*y*z image and displays it using matplotlib
     """
-    reshaped = np.zeros((32,32,3)).astype('uint8')
+    reshaped = np.zeros((x,y,channels)).astype('uint8')
 
     # reshape the row majored array into 32*32*3 image
     n = 0
