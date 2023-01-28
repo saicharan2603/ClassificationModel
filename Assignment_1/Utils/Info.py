@@ -27,6 +27,7 @@ def print_dict_info(dict):
     print("type of labels in dict:")
     print(type(dict[b'labels']))
     print("size:", len(dict[b'labels']))
+    print("shape:", dict[b'labels'].shape)
     print('First 10 labels',dict[b'labels'][0:10])
     print("_______________________________")
     print("type of batch_label in dict:")
