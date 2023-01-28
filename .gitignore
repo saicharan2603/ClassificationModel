@@ -9,3 +9,5 @@
 
 # ignore _pycache_ folder
 ./__pycache__/
+Assignment_1/PreProcessor/__pycache__/
+Assignment_1/Utils/__pycache__/
