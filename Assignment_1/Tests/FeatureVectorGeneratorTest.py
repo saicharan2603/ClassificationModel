@@ -44,7 +44,7 @@ if __name__ == "__main__":
     PickleTest.test_data(test_data)
 
     # selecting the subset of the test data
-    test_data = test_data[b'data'][:10]
+    test_data = test_data[b'data']
 
     # test the resize function
     test_resize(test_data[0])
