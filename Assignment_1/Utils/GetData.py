@@ -15,21 +15,43 @@ from PreProcessor.unpickle import unpickle
 
 def get_train_data(set = 1):
     # by default it returns the first set of data
+    
     if set == 1:
-        return unpickle("Assignment_1\\Data\\data_batch_1")
+        try:
+            return unpickle("Assignment_1/Data/data_batch_1")
+        except FileNotFoundError:
+            return unpickle("Assignment_1\\Data\\data_batch_1")
     elif set == 2:
-        return unpickle("Assignment_1\\Data\\data_batch_2")
+        try:
+            return unpickle("Assignment_1/Data/data_batch_2")
+        except FileNotFoundError:
+            return unpickle("Assignment_1\\Data\\data_batch_2")
     elif set == 3:
-        return unpickle("Assignment_1\\Data\\data_batch_3")
+        try:
+            return unpickle("Assignment_1/Data/data_batch_3")
+        except FileNotFoundError:
+            return unpickle("Assignment_1\\Data\\data_batch_3")
     elif set == 4:
-        return unpickle("Assignment_1\\Data\\data_batch_4")
+        try:
+            return unpickle("Assignment_1/Data/data_batch_4")
+        except FileNotFoundError:
+            return unpickle("Assignment_1\\Data\\data_batch_4")
     elif set == 5:
-        return unpickle("Assignment_1\\Data\\data_batch_5")
+        try:
+            return unpickle("Assignment_1/Data/data_batch_5")
+        except FileNotFoundError:
+            return unpickle("Assignment_1\\Data\\data_batch_5")
     else:
         raise ValueError("Invalid set number")
 
 def get_test_data():
-    return unpickle("Assignment_1\\Data\\test_batch")
+    try:
+        return unpickle("Assignment_1/Data/test_batch")
+    except FileNotFoundError:
+        return unpickle("Assignment_1\\Data\\test_batch")
 
 def get_labels():
-    return unpickle("Assignment_1\\Data\\batches.meta")
+    try:
+        return unpickle("Assignment_1/Data/batches.meta")
+    except FileNotFoundError:
+        return unpickle("Assignment_1\\Data\\batches.meta")
