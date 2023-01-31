@@ -33,11 +33,11 @@ def generate_feature_vector(data, from_shape = (3, 32, 32), to_shape = (3, 224, 
     feature_extractor = BBResNet18()
     feature_vector = feature_extractor.feature_extraction(resized_data)
     
-    return feature_vector
+    return feature_vector.astype(np.float32)
 
 def one_hot_encoding(labels):
     # one hot encoding of the labels
     one_hot_encoded_labels = np.zeros((len(labels), max(labels)+1))
     one_hot_encoded_labels[np.arange(len(labels)), labels] = 1
 
-    return one_hot_encoded_labels
+    return one_hot_encoded_labels.astype(np.float32)
