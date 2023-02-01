@@ -12,9 +12,9 @@ class NeuralNeworks:
         self.W2 = np.random.randn(self.h2_neurons, self.h1_neurons)
         self.W3 = np.random.randn(self.output_neurons, self.h2_neurons)
 
-        self.b1 = np.random.randn(self.h1_neurons)
-        self.b2 = np.random.randn(self.h2_neurons)
-        self.b3 = np.random.randn(self.output_neurons)
+        self.b1 = np.random.randn(self.h1_neurons, 1)
+        self.b2 = np.random.randn(self.h2_neurons, 1)
+        self.b3 = np.random.randn(self.output_neurons, 1)
 
     def relu(self, x):
         return np.maximum(0, x)
@@ -53,6 +53,9 @@ class NeuralNeworks:
         return y_hat
 
     def backprop(self, X, y, lr=0.001):
+        X = X.reshape(-1, 1)
+        y = y.reshape(-1, 1)
+
         y_hat = self.farword_pass(X)
 
         dE_dy_hat = self.cross_entropy_dash(y, y_hat)
@@ -82,10 +85,10 @@ class NeuralNeworks:
 
         return Error
     
-    def fit(self, X, y, epochs=10,lr=0.001, batch_size=32):
+    def fit(self, X, y, epochs=10,lr=0.001):
         err=np.array([])
         for epoch in range(epochs):
-
+            
             indices= np.arange(X.shape[0])
             np.random.shuffle(indices)
             Error=np.array([])
