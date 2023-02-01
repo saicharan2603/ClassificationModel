@@ -48,11 +48,15 @@ class NeuralNeworks:
         self.v1 = self.relu(self.z1)
         self.z2 = np.dot(self.W2, self.v1)+self.b2
         self.v2 = self.relu(self.z2)
+        assert self.v2.shape == (64, 1), f"v2 shape is not (64,1) its, {self.v2.shape}"
         self.z3 = np.dot(self.W3, self.v2)+self.b3
         y_hat = self.softmax(self.z3)
         return y_hat
 
     def backprop(self, X, y, lr=0.001):
+        X = X.reshape(-1, 1)
+        y = y.reshape(-1, 1)
+
         y_hat = self.farword_pass(X)
 
         dE_dy_hat = self.cross_entropy_dash(y, y_hat)
