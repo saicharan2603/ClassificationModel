@@ -13,7 +13,13 @@ def softmax(x):
     return exps / np.sum(exps)
 
 def softmax_prime(x):
-    return softmax(x) * (1 - softmax(x))
+    s = softmax(x).reshape((-1, 1))
+
+    s_prime = - np.matmul(s, s.T)
+    for i in range(len(x)):
+        s_prime[i][i] = s[i] * (1 - s[i])
+
+    return s_prime
 
 def cross_entropy(y, y_hat):
     return -np.sum(y * np.log(y_hat))
