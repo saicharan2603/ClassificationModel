@@ -17,7 +17,8 @@ def test_feature_vector_data(original_data: np.ndarray, feature_vector_data):
 
     assert feature_vector_data.shape[0] == original_data.shape[0], "Feature Vector Data and Original Data are not the same length"
     assert feature_vector_data.shape[1] == 512, "Feature Vector Data is not 512"
-    # assert feature_vector_data.dtype == np.float32, "Feature Vector Data is not np.float32"
+    assert feature_vector_data.dtype == np.float32, "Feature Vector Data is not np.float32"
+    #assert np.max(feature_vector_data) <= 1 , "Feature Vector Data is greater than 1"
 
 def test_one_hot_encoding(labels: list, one_hot_encoded_labels: np.ndarray):
     assert labels is not None, "Labels is None"
