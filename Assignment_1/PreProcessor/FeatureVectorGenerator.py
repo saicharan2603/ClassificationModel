@@ -16,9 +16,9 @@ def resize(image, from_shape = (3, 32, 32), to_shape = (3, 224, 224)):
         # resizing the image by each channel
         img = img.resize(to_shape[1:], Image.ANTIALIAS)
         # converting the image to numpy array
-        resized_image[i] = np.asarray(img).astype(np.float32)
+        resized_image[i] = np.asarray(img).astype(np.float32) / 255
 
-    return resized_image / 255
+    return resized_image
 
 def generate_feature_vector(data, from_shape = (3, 32, 32), to_shape = (3, 224, 224)):
     resized_data = np.zeros((data.shape[0], to_shape[0], to_shape[1], to_shape[2])).astype(np.float32)
@@ -28,6 +28,7 @@ def generate_feature_vector(data, from_shape = (3, 32, 32), to_shape = (3, 224, 
 
     # Testing the shape of the resized data
     assert resized_data.shape == (data.shape[0], to_shape[0], to_shape[1], to_shape[2]), f"Resized Data shape is not ({data.shape[0]}, 3, 224, 224)"
+    assert np.max(resized_data) <= 1.0, f'Max of resized data = {np.max(resized_data)}' 
 
     # generate feature vector
     feature_extractor = BBResNet18()
