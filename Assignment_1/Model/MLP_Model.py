@@ -12,9 +12,9 @@ class NeuralNeworks:
         self.W2 = np.random.randn(self.h2_neurons, self.h1_neurons)
         self.W3 = np.random.randn(self.output_neurons, self.h2_neurons)
 
-        self.b1 = np.random.randn(self.h1_neurons)
-        self.b2 = np.random.randn(self.h2_neurons)
-        self.b3 = np.random.randn(self.output_neurons)
+        self.b1 = np.random.randn(self.h1_neurons, 1)
+        self.b2 = np.random.randn(self.h2_neurons, 1)
+        self.b3 = np.random.randn(self.output_neurons, 1)
 
     def relu(self, x):
         return np.maximum(0, x)
@@ -48,7 +48,6 @@ class NeuralNeworks:
         self.v1 = self.relu(self.z1)
         self.z2 = np.dot(self.W2, self.v1)+self.b2
         self.v2 = self.relu(self.z2)
-        assert self.v2.shape == (64, 1), f"v2 shape is not (64,1) its, {self.v2.shape}"
         self.z3 = np.dot(self.W3, self.v2)+self.b3
         y_hat = self.softmax(self.z3)
         return y_hat
@@ -86,10 +85,10 @@ class NeuralNeworks:
 
         return Error
     
-    def fit(self, X, y, epochs=10,lr=0.001, batch_size=32):
+    def fit(self, X, y, epochs=10,lr=0.001):
         err=np.array([])
         for epoch in range(epochs):
-
+            
             indices= np.arange(X.shape[0])
             np.random.shuffle(indices)
             Error=np.array([])
