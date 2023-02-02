@@ -21,6 +21,7 @@ def resize(image, from_shape = (3, 32, 32), to_shape = (3, 224, 224)):
     return resized_image
 
 def generate_feature_vector(data, from_shape = (3, 32, 32), to_shape = (3, 224, 224)):
+
     resized_data = np.zeros((data.shape[0], to_shape[0], to_shape[1], to_shape[2])).astype(np.float32)
     for i in range(len(data)):
         # resize the image
@@ -33,8 +34,7 @@ def generate_feature_vector(data, from_shape = (3, 32, 32), to_shape = (3, 224, 
     # generate feature vector
     feature_extractor = BBResNet18()
     feature_vector = feature_extractor.feature_extraction(resized_data)
-    feature_vector = feature_vector
-    
+        
     return feature_vector.astype(np.float32)
 
 def one_hot_encoding(labels):
