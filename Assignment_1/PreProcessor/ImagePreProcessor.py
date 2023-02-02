@@ -44,8 +44,8 @@ def posterize(image):
     return posterized_image
 
 def random_rotate(image, x = 32, y = 32, channels = 3):
-    # randomly select theta with a step size of 45
-    return rotate(image, np.random.choice(np.arange(-np.pi, np.pi + np.pi/8, np.pi/4)), x, y, channels)
+    # randomly select theta and perform rotation
+    return rotate(image, np.random.uniform(-np.pi, np.pi), x, y, channels)
 
 def rotate(image, theta, x = 32, y = 32, channels = 3):
     # defining the transformation matrix for rotating an image 
