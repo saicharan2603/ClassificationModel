@@ -101,9 +101,9 @@ class NeuralNeworks:
 
 
     def predict(self, X):
-        y_hat=[]
+        y_hat=np.ndarray((0,self.output_neurons))
         for i in range(X.shape[0]):
-            y_hat.append(self.farword_pass(X[i]).T)
+            y_hat= np.vstack((y_hat,self.farword_pass(X[i]).T))
         
         y_pred=np.argmax(y_hat, axis=1)
         return y_pred
