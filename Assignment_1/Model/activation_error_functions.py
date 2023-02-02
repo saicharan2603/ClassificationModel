@@ -1,3 +1,5 @@
+## Not used Remove before submission
+
 import numpy as np
 
 # activation function and its derivative
