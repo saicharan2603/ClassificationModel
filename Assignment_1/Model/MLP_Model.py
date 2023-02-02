@@ -24,7 +24,7 @@ class NeuralNeworks:
         return y
 
     def softmax(self, x):
-        exps = np.exp(x - np.max(x))
+        exps = np.exp(x)
         return exps / np.sum(exps)
 
     def softmax_dash(self, x):
