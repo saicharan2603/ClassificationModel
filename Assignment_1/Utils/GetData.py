@@ -4,21 +4,16 @@ The data is stored in the Assignment_1/Data folder
 
 The function unplicles the data and returns it as a dictionary
 '''
-
-# importing sys
-import sys
-
-# add the path of the Assignment_1 folder to the sys.path
-sys.path.append('Assignment_1')
-
-from PreProcessor.unpickle import unpickle
+from Utils.unpickle import unpickle
+from PreProcessor.Augment import get_Augmented_Data
+import numpy as np
 
 path0 = "Data/data_batch_"
 path1 = "Assignment_1/Data/data_batch_"
 path2 = "Data\\data_batch_"
 path3 = "Assignment_1\\Data\\data_batch_"
 
-def get_train_data(set = 1):
+def get_train_data(set=1):
     # by default it returns the first set of data
     
     if set <= 0 or set > 5:
@@ -34,8 +29,17 @@ def get_train_data(set = 1):
         except FileNotFoundError:
             return unpickle(path3 + str(set))
 
+def get_train_data_all():
+    data = get_train_data(1)
+    for i in range(2, 6):
+        raw_data = get_train_data(i)
+        data[b'data'] = np.vstack((data[b'data'], raw_data[b'data']))
+        data[b'labels'] += raw_data[b'labels']
 
-        
+    return data    
+
+def get_train_data_aug():
+    return get_Augmented_Data(get_train_data_all())
 
 def get_test_data():
     try:
