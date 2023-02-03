@@ -1,6 +1,7 @@
 
 # importing sys
 import sys
+from Assignment_1.Utils import Data_Utils
 
 # add the path of the Assignment_1 folder to the sys.path
 sys.path.append('Assignment_1')
@@ -8,7 +9,7 @@ sys.path.append('Assignment_1')
 
 from PreProcessor import ImagePreProcessor
 from Utils.unpickle import unpickle
-from Utils import Info, GetData
+from Utils import Info
 
 
 import numpy as np
@@ -57,9 +58,9 @@ def test_labels(labels):
     assert type(labels[b'label_names'][0]) == bytes, "Labels[b'label_names'][0] is not of type bytes"
 
 if __name__ == "__main__":
-    labels = GetData.get_labels()
-    dict = GetData.get_train_data(1)
-    dict_all = GetData.get_train_data_all()
+    labels = Data_Utils.get_labels()
+    dict = Data_Utils.get_train_data(1)
+    dict_all = Data_Utils.get_train_data_all()
 
     Info.print_dict_info(dict)
     Info.print_labels_info(labels)

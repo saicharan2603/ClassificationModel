@@ -11,7 +11,7 @@ from PreProcessor import FeatureVectorGenerator
 
 from PreProcessor.ImagePreProcessor import show_image
 from matplotlib import pyplot as plt
-from Utils.GetData import get_train_data
+from Assignment_1.Utils.Data_Utils import get_train_data
 
 import numpy as np
 from matplotlib import pyplot as plt
