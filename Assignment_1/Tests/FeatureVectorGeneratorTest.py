@@ -1,13 +1,14 @@
 # Testing the Feature Vector Generator 
 # importing sys
 import sys
+from Assignment_1.Utils import Data_Utils
 
 # add the path of the Assignment_1 folder to the sys.path
 sys.path.append('Assignment_1')
 
 from PreProcessor.FeatureVectorGenerator import generate_feature_vector, resize
 from Tests import PickleTest
-from Utils import Info, GetData
+from Utils import Info
 import numpy as np
 
 def test_feature_vector_data(original_data: np.ndarray, feature_vector_data):
@@ -45,7 +46,7 @@ def test_resize(image: np.ndarray, from_shape = (3, 32, 32), to_shape = (3, 224,
 
 if __name__ == "__main__":
     # get the test data
-    test_data = GetData.get_test_data()
+    test_data = Data_Utils.get_test_data()
 
     # test the test data
     PickleTest.test_data(test_data)

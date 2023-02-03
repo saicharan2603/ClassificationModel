@@ -1,11 +1,12 @@
 # importing sys
 import sys
+from Assignment_1.Utils import Data_Utils
 
 # add the path of the Assignment_1 folder to the sys.path
 sys.path.append('Assignment_1')
 
 from PreProcessor import Augment
-from Utils import Info, GetData
+from Utils import Info
 import numpy as np
 
 def test_augmented_data(original_data: dict, augmented_data: dict):
@@ -26,7 +27,7 @@ def test_augmented_data(original_data: dict, augmented_data: dict):
     assert (augmented_data[b'data'][0:size] == original_data[b'data'][0:size]).all() or (augmented_data[b'data'][0:2*size: 2] == original_data[b'data'][0:size]).all(), "Augmented data are not correct"
 
 if __name__ == "__main__":
-    original_data = GetData.get_train_data_all()
+    original_data = Data_Utils.get_train_data_all()
     augmented_data = Augment.get_Augmented_Data(original_data)
 
     Info.print_dict_info(augmented_data)

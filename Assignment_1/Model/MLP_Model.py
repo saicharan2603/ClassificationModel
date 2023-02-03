@@ -85,7 +85,13 @@ class NeuralNeworks:
 
         return Error
     
-    def fit(self, X, y, epochs=10,lr=0.001):
+    def check_early_stop(self, err, patience):
+        if err[-1] > np.max(err[-2:-patience-1]):
+            return True
+            
+        return False
+
+    def fit(self, X, y, epochs=10,lr=0.001, patience = 5):
         err=np.array([])
         for epoch in range(epochs):
             
@@ -97,6 +103,11 @@ class NeuralNeworks:
 
                 Error=np.append(Error,self.backprop(X[i], y[i], lr))
             err=np.append(err,np.mean(Error))
+
+            if epoch > patience:
+                if self.check_early_stop(err, patience):
+                    break
+
         return err
 
 
