@@ -7,7 +7,7 @@ data = Data()
 
 # train the MLP models with these hyper parameters
 # trains on both original and augmented data
-# MLP.train_mlp_models(data, epochs=25, lr=0.01, patience=5)
+MLP.train_mlp_models(data, epochs=100, lr=0.01, patience=5)
 
 # train the ML Models using the 
 ML.train_all_models(data)

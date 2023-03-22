@@ -74,10 +74,10 @@ def train_all_models(Data:Data):
     train_dtc_model(Data.x_train, Data.y_train, dtc_filepath, max_depth = 10)
 
 def train_all_models_aug(Data:Data):
-    train_svm_model(Data.x_train_aug, Data.y_train_raw_aug, svm_filepath)
-    train_knn_model(Data.x_train_aug, Data.y_train_aug, knn_filepath)
-    train_logistic_model(Data.x_train_aug, Data.y_train_raw_aug, logistic_filepath, max_iter = 1000)
-    train_dtc_model(Data.x_train_aug, Data.y_train_aug, dtc_filepath, max_depth = 10)
+    train_svm_model(Data.x_train_aug, Data.y_train_raw_aug, svm_aug_filepath)
+    train_knn_model(Data.x_train_aug, Data.y_train_aug, knn_aug_filepath)
+    train_logistic_model(Data.x_train_aug, Data.y_train_raw_aug, logistic_aug_filepath, max_iter = 1000)
+    train_dtc_model(Data.x_train_aug, Data.y_train_aug, dtc_aug_filepath, max_depth = 10)
 
 if __name__ == '__main__':
     data = Data()
