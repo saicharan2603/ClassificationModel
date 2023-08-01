@@ -1,4 +1,4 @@
-# Assignment 1 - Image Classification using Neural Netwroks
+# Assignment 1 - Image Classification using Neural Netwrok
 
 CS776A: Deep Learning for Computer Vision.
 
